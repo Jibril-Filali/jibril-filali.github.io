@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills — Jibril Filali</title>
+  <meta name="description" content="Compétences techniques de Jibril Filali : HTML, CSS, JavaScript, PHP, Docker, Figma et plus. Stack frontend & backend présentées sous forme de terminal.">
+  <meta name="author" content="Jibril Filali">
+  <meta property="og:title" content="Skills — Jibril Filali">
+  <meta property="og:description" content="Compétences techniques de Jibril Filali : HTML, CSS, JavaScript, PHP, Docker, Figma et plus.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jibril-filali.page.gd/skills.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Skills — Jibril Filali">
+  <meta name="twitter:description" content="Stack technique de Jibril Filali : frontend, backend, outils et design.">
+  <link rel="canonical" href="https://jibril-filali.page.gd/skills.html">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- LOADER TERMINAL -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-lines">
+        <p class="loader-line"><span class="ts">[ 0.000 ]</span> Initializing portfolio...</p>
+        <p class="loader-line"><span class="ts">[ 0.212 ]</span> Loading modules... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.445 ]</span> Mounting filesystem... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.673 ]</span> Starting services... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.891 ]</span> Welcome, user.</p>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+        <span class="loader-pct" id="loaderPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- MATRIX CANVAS -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- SCANLINE -->
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="prompt">~$</span>
+      <span class="logo-text">jibril_filali</span>
+      <span class="cursor-blink">▮</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html"    class="nav-link" data-index="01">./about</a></li>
+      <li><a href="projects.html" class="nav-link" data-index="02">./projects</a></li>
+      <li><a href="skills.html"   class="nav-link" data-index="03">./skills</a></li>
+      <li><a href="contact.html"  class="nav-link" data-index="04">./contact</a></li>
+    </ul>
+    <button class="nav-terminal-btn" id="navTerminalBtn" title="Ouvrir le terminal [` ]">[>_]</button>
+    <button class="nav-sound-btn" id="soundToggle" title="Toggle matrix sound">[♪ OFF]</button>
+    <a href="contact.html" class="nav-cta">[ Contact ]</a>
+    <button class="nav-menu" id="navMenu" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <a href="about.html"    class="mobile-link">./about</a>
+      <a href="projects.html" class="mobile-link">./projects</a>
+      <a href="skills.html"   class="mobile-link">./skills</a>
+      <a href="contact.html"  class="mobile-link">./contact</a>
+      <div class="mobile-menu-footer">
+        <a href="https://github.com/Jibril-Filali" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-wrap">
+
+    <!-- ══════════════ SKILLS ══════════════ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="cmd-header reveal-text">
+          <span class="prompt">root@skills:~$</span> cat /etc/tech_stack.conf
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- FRONTEND -->
+          <div class="skill-block reveal-text">
+            <div class="skill-block-title"><span class="folder">📁</span> FRONTEND</div>
+            <ul class="skill-list">
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">HTML5</span>
+                <span class="bar"><span class="bar-fill" style="--w:80%"></span></span>
+                <span class="pct">80%</span>
+              </span></li>
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">CSS3</span>
+                <span class="bar"><span class="bar-fill" style="--w:80%"></span></span>
+                <span class="pct">80%</span>
+              </span></li>
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">JavaScript</span>
+                <span class="bar"><span class="bar-fill" style="--w:65%"></span></span>
+                <span class="pct">65%</span>
+              </span></li>
+            </ul>
+          </div>
+
+          <!-- BACKEND -->
+          <div class="skill-block reveal-text">
+            <div class="skill-block-title"><span class="folder">📁</span> BACKEND</div>
+            <ul class="skill-list">
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">PHP</span>
+                <span class="bar"><span class="bar-fill" style="--w:55%"></span></span>
+                <span class="pct">55%</span>
+              </span></li>
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">Python</span>
+                <span class="bar"><span class="bar-fill" style="--w:45%"></span></span>
+                <span class="pct">45%</span>
+              </span></li>
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">SQL</span>
+                <span class="bar"><span class="bar-fill" style="--w:50%"></span></span>
+                <span class="pct">50%</span>
+              </span></li>
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">MongoDB</span>
+                <span class="bar"><span class="bar-fill" style="--w:40%"></span></span>
+                <span class="pct">40%</span>
+              </span></li>
+            </ul>
+          </div>
+
+          <!-- OUTILS -->
+          <div class="skill-block reveal-text">
+            <div class="skill-block-title"><span class="folder">📁</span> OUTILS</div>
+            <ul class="skill-list">
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">Docker</span>
+                <span class="bar"><span class="bar-fill" style="--w:40%"></span></span>
+                <span class="pct">40%</span>
+              </span></li>
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">Git</span>
+                <span class="bar"><span class="bar-fill" style="--w:55%"></span></span>
+                <span class="pct">55%</span>
+              </span></li>
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">Bash</span>
+                <span class="bar"><span class="bar-fill" style="--w:50%"></span></span>
+                <span class="pct">50%</span>
+              </span></li>
+              <li><span class="skill-bar-wrap">
+                <span class="skill-name-txt">Figma</span>
+                <span class="bar"><span class="bar-fill" style="--w:60%"></span></span>
+                <span class="pct">60%</span>
+              </span></li>
+            </ul>
+          </div>
+
+          <!-- DESIGN & INFRA -->
+          <div class="skill-block reveal-text">
+            <div class="skill-block-title"><span class="folder">📁</span> DESIGN & INFRA</div>
+            <div class="chip-list">
+              <span class="chip">UI/UX Design</span>
+              <span class="chip">Responsive</span>
+              <span class="chip">GSAP</span>
+              <span class="chip">Accessibilité</span>
+              <span class="chip">Maquettage</span>
+              <span class="chip">Prototypage</span>
+              <span class="chip">DNS</span>
+              <span class="chip">Cloudflare</span>
+            </div>
+          </div>
+
+        </div><!-- /skills-grid -->
+      </div>
+    </section>
+
+  </div><!-- /page-wrap -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-col-title">$ Navigation</p>
+          <nav class="footer-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer-col-title">$ Connect</p>
+          <div class="footer-socials">
+            <a href="https://github.com/Jibril-Filali" class="footer-social-link" target="_blank" rel="noopener">💻 GitHub</a>
+            <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" class="footer-social-link" target="_blank" rel="noopener">💼 LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">$ Quote</p>
+          <p class="footer-quote">"Talk is cheap. Show me the code." — Linus Torvalds</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom-left"><span class="prompt">~$</span> Developed with ❤️ by Jibril Filali · 2026</p>
+        <div class="footer-bottom-right">
+          <span class="footer-online"><span class="availability-dot"></span> ONLINE</span>
+          <a href="easteregg.html" class="footer-secret">???</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MINI TERMINAL -->
+  <div class="mini-terminal" id="miniTerminal" aria-hidden="true">
+    <div class="mt-resize-handle" id="mtResizeHandle"></div>
+    <div class="mt-header">
+      <span class="mt-dots">
+        <span class="mt-dot" id="mtDotClose" style="background:#ff5f57" title="Fermer"></span>
+        <span class="mt-dot" id="mtDotMin"   style="background:#febc2e" title="Réduire"></span>
+        <span class="mt-dot" id="mtDotMax"   style="background:#28c840" title="Agrandir"></span>
+      </span>
+      <span class="mt-title">jibril@portfolio:~$</span>
+      <span class="mt-hint">[ ` ] ouvrir · drag pour redimensionner</span>
+      <button class="mt-fullscreen" id="mtFullscreen" title="Plein écran">[ ⛶ ]</button>
+      <button class="mt-close" id="mtClose">[ ✕ ]</button>
+    </div>
+    <div class="mt-output" id="mtOutput" data-lenis-prevent></div>
+    <div class="mt-input-row">
+      <span class="mt-prompt-inline">~$</span>
+      <input type="text" id="mtInput" class="mt-input" placeholder="type a command..." autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top-btn" id="scrollTop">[ ↑ TOP ]</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

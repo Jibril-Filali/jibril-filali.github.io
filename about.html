@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Jibril Filali</title>
+  <meta name="description" content="Découvrez le parcours de Jibril Filali : étudiant en BUT MMI, passionné de code et de design, en formation à l'IUT de Troyes.">
+  <meta name="author" content="Jibril Filali">
+  <meta property="og:title" content="À propos — Jibril Filali">
+  <meta property="og:description" content="Découvrez le parcours de Jibril Filali : étudiant en BUT MMI, passionné de code et de design, en formation à l'IUT de Troyes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jibril-filali.page.gd/about.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="À propos — Jibril Filali">
+  <meta name="twitter:description" content="Parcours, formation et intérêts de Jibril Filali.">
+  <link rel="canonical" href="https://jibril-filali.page.gd/about.html">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- LOADER TERMINAL -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-lines">
+        <p class="loader-line"><span class="ts">[ 0.000 ]</span> Initializing portfolio...</p>
+        <p class="loader-line"><span class="ts">[ 0.212 ]</span> Loading modules... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.445 ]</span> Mounting filesystem... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.673 ]</span> Starting services... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.891 ]</span> Welcome, user.</p>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+        <span class="loader-pct" id="loaderPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- MATRIX CANVAS -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- SCANLINE -->
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="prompt">~$</span>
+      <span class="logo-text">jibril_filali</span>
+      <span class="cursor-blink">▮</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html"    class="nav-link" data-index="01">./about</a></li>
+      <li><a href="projects.html" class="nav-link" data-index="02">./projects</a></li>
+      <li><a href="skills.html"   class="nav-link" data-index="03">./skills</a></li>
+      <li><a href="contact.html"  class="nav-link" data-index="04">./contact</a></li>
+    </ul>
+    <button class="nav-terminal-btn" id="navTerminalBtn" title="Ouvrir le terminal [` ]">[>_]</button>
+    <button class="nav-sound-btn" id="soundToggle" title="Toggle matrix sound">[♪ OFF]</button>
+    <a href="contact.html" class="nav-cta">[ Contact ]</a>
+    <button class="nav-menu" id="navMenu" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <a href="about.html"    class="mobile-link">./about</a>
+      <a href="projects.html" class="mobile-link">./projects</a>
+      <a href="skills.html"   class="mobile-link">./skills</a>
+      <a href="contact.html"  class="mobile-link">./contact</a>
+      <div class="mobile-menu-footer">
+        <a href="https://github.com/Jibril-Filali" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-wrap">
+
+    <!-- ══════════════ ABOUT ══════════════ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="cmd-header reveal-text">
+          <span class="prompt">root@about:~$</span> cat /usr/bio/profile.json
+        </div>
+
+        <div class="about-grid">
+          <div class="about-terminal reveal-text">
+            <div class="terminal-titlebar">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="terminal-title-text">profile.json</span>
+            </div>
+            <div class="terminal-body">
+<pre><code><span class="c-brace">{</span>
+  <span class="c-key">"name"</span>: <span class="c-str">"Jibril Filali"</span>,
+  <span class="c-key">"role"</span>: <span class="c-str">"Développeur Full-Stack"</span>,
+  <span class="c-key">"location"</span>: <span class="c-str">"Saint-André-les-Vergers"</span>,
+  <span class="c-key">"formation"</span>: <span class="c-str">"BUT MMI — IUT de Troyes"</span>,
+  <span class="c-key">"status"</span>: <span class="c-bool">"En formation"</span>,
+  <span class="c-key">"languages"</span>: [<span class="c-str">"Français"</span>, <span class="c-str">"Anglais"</span>],
+  <span class="c-key">"stack"</span>: [<span class="c-str">"JS"</span>, <span class="c-str">"PHP"</span>, <span class="c-str">"MongoDB"</span>, <span class="c-str">"Docker"</span>],
+  <span class="c-key">"available"</span>: <span class="c-bool">true</span>
+<span class="c-brace">}</span></code></pre>
+            </div>
+          </div>
+          <div class="about-text">
+            <p class="about-p reveal-text">Je suis en BUT MMI à l'IUT de Troyes. J'ai commencé à coder surtout parce que j'aimais le design — et finalement <span class="highlight">le développement</span> m'a autant accroché.</p>
+            <p class="about-p reveal-text">J'essaie de soigner les deux aspects : que l'interface soit <span class="highlight">propre et intuitive</span>, et que le code derrière tienne la route.</p>
+            <p class="about-p reveal-text">Je suis encore en 1ère année, donc j'apprends beaucoup. Chaque projet me fait <span class="highlight">progresser</span> — c'est vraiment ça qui me motive.</p>
+          </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-row">
+          <div class="stat-item reveal-text">
+            <span class="stat-number" data-target="1" data-nosuffix>0</span>
+            <span class="stat-label">Année d'étude</span>
+          </div>
+          <div class="stat-item reveal-text">
+            <span class="stat-number" data-target="2">0</span>
+            <span class="stat-label">Projets réalisés</span>
+          </div>
+          <div class="stat-item reveal-text">
+            <span class="stat-number" data-target="12">0</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+        </div>
+
+        <!-- PARCOURS -->
+        <div class="cmd-header reveal-text" style="margin-top:3rem">
+          <span class="prompt">root@about:~$</span> ls -la /usr/education/
+        </div>
+        <div class="timeline reveal-text">
+          <div class="tl-item">
+            <span class="tl-date">2023 — 2024</span>
+            <div class="tl-content">
+              <h4>Première STI2D</h4>
+              <p>Lycée Martinière Monplaisir — Lyon 8e</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">2024 — 2025</span>
+            <div class="tl-content">
+              <h4>Terminale STI2D · Spécialité Architecture</h4>
+              <p>Lycée Martinière Monplaisir — Lyon 8e</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">2025 → présent</span>
+            <div class="tl-content">
+              <h4>BUT MMI <span class="status-tag">EN COURS</span></h4>
+              <p>IUT de Troyes — 10000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTRES D'INTÉRÊT -->
+        <div class="cmd-header reveal-text" style="margin-top:3rem">
+          <span class="prompt">root@about:~$</span> cat /usr/interests.json
+        </div>
+        <div class="interests-grid">
+          <div class="interest-item reveal-text">
+            <span class="interest-icon interest-code">[GAME]</span>
+            <span class="interest-label">Gaming</span>
+          </div>
+          <div class="interest-item reveal-text">
+            <span class="interest-icon interest-code">[MUSIC]</span>
+            <span class="interest-label">Music Pop / Soul</span>
+          </div>
+          <div class="interest-item reveal-text">
+            <span class="interest-icon interest-code">[UI/UX]</span>
+            <span class="interest-label">Design UI/UX</span>
+          </div>
+          <div class="interest-item reveal-text">
+            <span class="interest-icon interest-code">[FILM]</span>
+            <span class="interest-label">Séries &amp; Films</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-wrap -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-col-title">$ Navigation</p>
+          <nav class="footer-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer-col-title">$ Connect</p>
+          <div class="footer-socials">
+            <a href="https://github.com/Jibril-Filali" class="footer-social-link" target="_blank" rel="noopener">💻 GitHub</a>
+            <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" class="footer-social-link" target="_blank" rel="noopener">💼 LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">$ Quote</p>
+          <p class="footer-quote">"Design is not just what it looks like. Design is how it functions." — Steve Jobs</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom-left"><span class="prompt">~$</span> Developed with ❤️ by Jibril Filali · 2026</p>
+        <div class="footer-bottom-right">
+          <span class="footer-online"><span class="availability-dot"></span> ONLINE</span>
+          <a href="easteregg.html" class="footer-secret">???</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MINI TERMINAL -->
+  <div class="mini-terminal" id="miniTerminal" aria-hidden="true">
+    <div class="mt-resize-handle" id="mtResizeHandle"></div>
+    <div class="mt-header">
+      <span class="mt-dots">
+        <span class="mt-dot" id="mtDotClose" style="background:#ff5f57" title="Fermer"></span>
+        <span class="mt-dot" id="mtDotMin"   style="background:#febc2e" title="Réduire"></span>
+        <span class="mt-dot" id="mtDotMax"   style="background:#28c840" title="Agrandir"></span>
+      </span>
+      <span class="mt-title">jibril@portfolio:~$</span>
+      <span class="mt-hint">[ ` ] ouvrir · drag pour redimensionner</span>
+      <button class="mt-fullscreen" id="mtFullscreen" title="Plein écran">[ ⛶ ]</button>
+      <button class="mt-close" id="mtClose">[ ✕ ]</button>
+    </div>
+    <div class="mt-output" id="mtOutput" data-lenis-prevent></div>
+    <div class="mt-input-row">
+      <span class="mt-prompt-inline">~$</span>
+      <input type="text" id="mtInput" class="mt-input" placeholder="type a command..." autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top-btn" id="scrollTop">[ ↑ TOP ]</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

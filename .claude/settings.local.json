@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/jibri/setupclaude/**)",
+      "Bash(node:*)",
+      "Bash(grep -r \"<img\" F:/Privé/Portfolio4.2/*.html)",
+      "Bash(grep:*)"
+    ]
+  }
+}

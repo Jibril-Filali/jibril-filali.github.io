@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets — Jibril Filali</title>
+  <meta name="description" content="Projets web de Jibril Filali : site fan football, SetupClaude (guide IA + terminal intégré), et plus. HTML, CSS, JavaScript, PHP, API Anthropic.">
+  <meta name="author" content="Jibril Filali">
+  <meta property="og:title" content="Projets — Jibril Filali">
+  <meta property="og:description" content="Projets web de Jibril Filali : site fan football, SetupClaude (guide IA + terminal intégré), et plus.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jibril-filali.page.gd/projects.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Projets — Jibril Filali">
+  <meta name="twitter:description" content="Projets web HTML, CSS, JavaScript, PHP, API Anthropic de Jibril Filali.">
+  <link rel="canonical" href="https://jibril-filali.page.gd/projects.html">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- LOADER TERMINAL -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-lines">
+        <p class="loader-line"><span class="ts">[ 0.000 ]</span> Initializing portfolio...</p>
+        <p class="loader-line"><span class="ts">[ 0.212 ]</span> Loading modules... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.445 ]</span> Mounting filesystem... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.673 ]</span> Starting services... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.891 ]</span> Welcome, user.</p>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+        <span class="loader-pct" id="loaderPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- MATRIX CANVAS -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- SCANLINE -->
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="prompt">~$</span>
+      <span class="logo-text">jibril_filali</span>
+      <span class="cursor-blink">▮</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html"    class="nav-link" data-index="01">./about</a></li>
+      <li><a href="projects.html" class="nav-link" data-index="02">./projects</a></li>
+      <li><a href="skills.html"   class="nav-link" data-index="03">./skills</a></li>
+      <li><a href="contact.html"  class="nav-link" data-index="04">./contact</a></li>
+    </ul>
+    <button class="nav-terminal-btn" id="navTerminalBtn" title="Ouvrir le terminal [` ]">[>_]</button>
+    <button class="nav-sound-btn" id="soundToggle" title="Toggle matrix sound">[♪ OFF]</button>
+    <a href="contact.html" class="nav-cta">[ Contact ]</a>
+    <button class="nav-menu" id="navMenu" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <a href="about.html"    class="mobile-link">./about</a>
+      <a href="projects.html" class="mobile-link">./projects</a>
+      <a href="skills.html"   class="mobile-link">./skills</a>
+      <a href="contact.html"  class="mobile-link">./contact</a>
+      <div class="mobile-menu-footer">
+        <a href="https://github.com/Jibril-Filali" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-wrap">
+
+    <!-- ══════════════ PROJECTS ══════════════ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="cmd-header reveal-text">
+          <span class="prompt">root@projects:~$</span> ./show_portfolio.py --all
+        </div>
+
+        <!-- BARRE DE FILTRE -->
+        <div class="filter-bar" id="projectFilterBar">
+          <button class="filter-btn active" data-filter="all">Tout</button>
+          <button class="filter-btn" data-filter="html">HTML</button>
+          <button class="filter-btn" data-filter="css">CSS</button>
+          <button class="filter-btn" data-filter="javascript">JavaScript</button>
+          <button class="filter-btn" data-filter="php">PHP</button>
+          <button class="filter-btn" data-filter="api anthropic">API Anthropic</button>
+        </div>
+
+        <div class="projects-list">
+
+          <!-- PROJET 01 -->
+          <div class="project-item-wrap">
+            <a href="http://sae105.mmi25d02.mmi-troyes.fr/index.php" target="_blank" rel="noopener" class="project-item" data-tech="html css javascript php docker">
+              <div class="project-header-row">
+                <span class="project-index">[ 01 ]</span>
+                <span class="project-status-dot active"></span>
+                <span class="project-status-label">DEPLOYED</span>
+                <span class="project-date">2025</span>
+              </div>
+              <h3 class="project-name">&gt; Site Fan Football</h3>
+              <p class="project-desc">
+                Site qui retranscrit le top 50 des meilleurs clubs en Ligue des Champions et l'histoire du meilleur joueur du monde.
+              </p>
+              <div class="project-tech">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>Docker</span>
+              </div>
+              <div class="project-features">
+                <p class="feature-title">$ Fonctionnalités clés :</p>
+                <ul class="features-list">
+                  <li>Upload / Remove image</li>
+                  <li>Tableau dynamique trié</li>
+                  <li>Page contact sécurisée</li>
+                  <li>Interactions utilisateur complètes</li>
+                </ul>
+              </div>
+              <span class="project-link-label">↗ Accès site</span>
+            </a>
+          </div>
+
+          <!-- PROJET 02 -->
+          <div class="project-item-wrap">
+            <a href="https://setupclaude.page.gd" target="_blank" rel="noopener" class="project-item" data-tech="html css javascript api anthropic">
+              <div class="project-header-row">
+                <span class="project-index">[ 02 ]</span>
+                <span class="project-status-dot active"></span>
+                <span class="project-status-label">DEPLOYED</span>
+                <span class="project-date">2026</span>
+              </div>
+              <h3 class="project-name">&gt; SetupClaude</h3>
+              <p class="project-desc">
+                Guide complet pour installer et configurer Claude Code en 5 minutes. Explique aussi ce qu'est l'IA, comment bien l'utiliser et ses limites. Terminal IA intégré directement dans le site via l'API Anthropic.
+              </p>
+              <div class="project-tech">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>API Anthropic</span>
+              </div>
+              <div class="project-features">
+                <p class="feature-title">$ Fonctionnalités clés :</p>
+                <ul class="features-list">
+                  <li>Guide en 12 sections (installation → workflow)</li>
+                  <li>Terminal IA flottant (Claude Haiku)</li>
+                  <li>Cheat sheet interactive</li>
+                  <li>Kit étudiant téléchargeable (.zip)</li>
+                </ul>
+              </div>
+              <span class="project-link-label">↗ Accès site</span>
+            </a>
+          </div>
+
+          <!-- PROJET 03 -->
+          <div class="project-item-wrap">
+            <div class="project-item project-coming">
+              <div class="project-header-row">
+                <span class="project-index">[ 03 ]</span>
+                <span class="project-status-dot"></span>
+                <span class="project-status-label dim">PENDING</span>
+              </div>
+              <h3 class="project-name">&gt; Prochain projet...</h3>
+              <p class="project-desc">Bientôt disponible.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-wrap -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-col-title">$ Navigation</p>
+          <nav class="footer-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer-col-title">$ Connect</p>
+          <div class="footer-socials">
+            <a href="https://github.com/Jibril-Filali" class="footer-social-link" target="_blank" rel="noopener">💻 GitHub</a>
+            <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" class="footer-social-link" target="_blank" rel="noopener">💼 LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">$ Quote</p>
+          <p class="footer-quote">"First, solve the problem. Then, write the code." — John Johnson</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom-left"><span class="prompt">~$</span> Developed with ❤️ by Jibril Filali · 2026</p>
+        <div class="footer-bottom-right">
+          <span class="footer-online"><span class="availability-dot"></span> ONLINE</span>
+          <a href="easteregg.html" class="footer-secret">???</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MINI TERMINAL -->
+  <div class="mini-terminal" id="miniTerminal" aria-hidden="true">
+    <div class="mt-resize-handle" id="mtResizeHandle"></div>
+    <div class="mt-header">
+      <span class="mt-dots">
+        <span class="mt-dot" id="mtDotClose" style="background:#ff5f57" title="Fermer"></span>
+        <span class="mt-dot" id="mtDotMin"   style="background:#febc2e" title="Réduire"></span>
+        <span class="mt-dot" id="mtDotMax"   style="background:#28c840" title="Agrandir"></span>
+      </span>
+      <span class="mt-title">jibril@portfolio:~$</span>
+      <span class="mt-hint">[ ` ] ouvrir · drag pour redimensionner</span>
+      <button class="mt-fullscreen" id="mtFullscreen" title="Plein écran">[ ⛶ ]</button>
+      <button class="mt-close" id="mtClose">[ ✕ ]</button>
+    </div>
+    <div class="mt-output" id="mtOutput" data-lenis-prevent></div>
+    <div class="mt-input-row">
+      <span class="mt-prompt-inline">~$</span>
+      <input type="text" id="mtInput" class="mt-input" placeholder="type a command..." autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top-btn" id="scrollTop">[ ↑ TOP ]</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

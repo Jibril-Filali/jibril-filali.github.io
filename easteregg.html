@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>??? — Secret</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- LOADER TERMINAL -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-lines">
+        <p class="loader-line"><span class="ts">[ 0.000 ]</span> Initializing secret protocol...</p>
+        <p class="loader-line"><span class="ts">[ 0.234 ]</span> Scanning for intruders... <span class="ok">CLEAR</span></p>
+        <p class="loader-line"><span class="ts">[ 0.456 ]</span> Loading challenge module... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.712 ]</span> Encrypting channel... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.891 ]</span> Access granted.</p>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+        <span class="loader-pct" id="loaderPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- MATRIX CANVAS -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- SCANLINE -->
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="prompt">root@secret:~$</span>
+      <span class="cursor-blink">▮</span>
+    </a>
+    <ul class="nav-links"></ul>
+    <button class="nav-menu" id="navMenu" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-footer">
+        <a href="https://github.com/Jibril-Filali" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-wrap">
+
+    <!-- ══════════════ EASTER EGG ══════════════ -->
+    <section class="section" id="secret">
+      <div class="container">
+        <div class="cmd-header">
+          <span class="prompt">root@secret:~$</span> ./decrypt_challenge.sh
+        </div>
+
+        <!-- BOOT SEQUENCE -->
+        <div class="eg-boot-seq" id="bootSeq">
+          <p class="eg-boot-line"><span class="ts">[ 0.000 ]</span> Initializing secret protocol...</p>
+          <p class="eg-boot-line"><span class="ts">[ 0.234 ]</span> Scanning for intruders... <span class="ok">CLEAR</span></p>
+          <p class="eg-boot-line"><span class="ts">[ 0.456 ]</span> Loading challenge module... <span class="ok">OK</span></p>
+          <p class="eg-boot-line"><span class="ts">[ 0.712 ]</span> Decrypting question... <span class="ok">READY</span></p>
+        </div>
+
+        <!-- CHALLENGE ZONE -->
+        <div class="challenge-zone" id="challengeZone" style="display:none;">
+          <div class="challenge-intro">
+            <p class="prompt">&gt;&gt; BIENVENUE DANS LA ZONE SECRÈTE</p>
+            <p class="prompt">&gt;&gt; Seuls les plus malins découvriront ce qui se cache ici...</p>
+          </div>
+
+          <div class="challenge-level" style="margin-top:1.5rem">
+            <p class="level-indicator">NIVEAU : <span id="currentLevel">1</span> / 4</p>
+          </div>
+
+          <div class="challenge-question" style="margin-top:1.25rem">
+            <h3 class="question-title" id="questionTitle">Question 1 :</h3>
+            <p class="question-text" id="questionText"></p>
+          </div>
+
+          <div class="challenge-form" style="margin-top:1.25rem">
+            <input
+              type="text"
+              id="answerInput"
+              class="answer-input"
+              placeholder="Tapez votre réponse..."
+              autocomplete="off"
+            >
+            <button id="submitAnswer" class="validate-btn">[ VALIDER ]</button>
+          </div>
+
+          <div id="feedback" class="challenge-feedback" style="margin-top:.75rem"></div>
+        </div>
+
+        <!-- REWARD ZONE -->
+        <div class="reward-zone" id="rewardZone" style="display:none;">
+          <div class="glitch-container">
+            <h1 class="glitch" data-text="ACCÈS ACCORDÉ">ACCÈS ACCORDÉ</h1>
+          </div>
+
+          <div class="reward-content">
+            <p class="prompt" style="margin:.75rem 0">&gt;&gt; FÉLICITATIONS ! Vous avez déverrouillé le secret...</p>
+
+            <div class="secret-message">
+              <h3 style="color:var(--green);margin:0 0 1rem;">🎉 MESSAGE SECRET 🎉</h3>
+              <p style="font-size:.9rem;line-height:1.8;color:var(--text-dim);">
+                Bravo ! Vous faites partie des rares visiteurs qui ont trouvé cette page cachée.<br><br>
+                <span style="color:var(--green);font-weight:700;">INFO :</span>
+                <strong style="color:var(--green);font-size:1.05rem;"> Je cherche un stage en 2027 !</strong><br><br>
+                Envoyez-moi un mail avec un screenshot pour me prouver que vous avez réussi 😄
+              </p>
+
+              <div class="ascii-art">
+                <pre>
+    ██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗██████╗
+    ██║  ██║██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗
+    ███████║███████║██║     █████╔╝ █████╗  ██████╔╝
+    ██╔══██║██╔══██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗
+    ██║  ██║██║  ██║╚██████╗██║  ██╗███████╗██║  ██║
+    ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝</pre>
+              </div>
+
+              <a href="mailto:jibrilfilali10@gmail.com" class="term-btn" style="display:inline-block;margin-top:1.25rem">
+                [ Envoyer un mail ]
+              </a>
+            </div>
+
+            <!-- LEADERBOARD -->
+            <div class="leaderboard-section">
+              <p class="lb-title">🏆 Hall of Détectives</p>
+
+              <!-- Entrées dynamiques (localStorage) -->
+              <div id="lbDynamic"></div>
+
+              <!-- Formulaire d'inscription -->
+              <div class="detective-form" id="detectiveForm">
+                <p><span class="prompt">&gt;</span> Inscris ton alias dans le Hall of Détectives :</p>
+                <div class="detective-input-row">
+                  <input
+                    type="text"
+                    id="detectiveAlias"
+                    class="detective-input"
+                    placeholder="Ton alias de détective..."
+                    maxlength="24"
+                    autocomplete="off"
+                  >
+                  <button id="detectiveSubmit" class="detective-submit">[ REJOINDRE ]</button>
+                </div>
+              </div>
+
+              <div id="detectiveBadge" style="display:none; margin-top:1rem; padding:.75rem 1rem; border:1px solid var(--border-bright); border-radius:3px; font-size:.8rem; color:var(--green);">
+                ✅ Bien joué, <strong id="badgeName"></strong> ! Tu es dans le Hall of Détectives.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /page-wrap -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-bottom-left"><span class="prompt">~$</span> Developed with ❤️ by Jibril Filali · 2026</p>
+        <div class="footer-bottom-right">
+          <span class="footer-online"><span class="availability-dot"></span> ONLINE</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/easteregg.js"></script>
+</body>
+</html>

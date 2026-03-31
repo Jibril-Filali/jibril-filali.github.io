@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /easteregg.html
+
+Sitemap: https://jibril-filali.page.gd/sitemap.xml
