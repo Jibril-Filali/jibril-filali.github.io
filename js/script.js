@@ -788,7 +788,7 @@ function initMiniTerminal() {
       '  Formation : BUT MMI — IUT de Troyes (1ère année)',
       '  Aime      : le code, le design, et quand les deux marchent bien ensemble',
       '  Status    : <span class="mt-green">● EN FORMATION</span> — cherche un stage pour 2027',
-      '  Stack     : HTML · CSS · JS · PHP · Python · SQL · Docker',
+      '  Stack     : HTML · CSS · JS · PHP · Python · SQL · Java · Docker',
       '  Lieu      : Troyes / Lyon',
     ].join('\n'),
 
@@ -829,10 +829,11 @@ function initMiniTerminal() {
 
     projects: () => [
       '<span class="mt-dim">ls ./projects/</span>',
-      '  <span class="mt-green">[01]</span> Site Fan Football  — HTML/CSS/JS/PHP/Docker  <span class="mt-dim">2025</span>',
-      '  <span class="mt-green">[02]</span> SetupClaude        — HTML/CSS/JS/API Anthropic <span class="mt-dim">2026</span>',
-      '  <span class="mt-green">[03]</span> Portfolio v4.2     — JS/GSAP/CSS3             <span class="mt-dim">2026</span>',
-      '  <span class="mt-dim">[04]</span> <span class="mt-dim">???                — COMING SOON</span>',
+      '  <span class="mt-green">[01]</span> Site Fan Football       — HTML/CSS/JS/PHP/Docker    <span class="mt-dim">2025</span>',
+      '  <span class="mt-green">[02]</span> SetupClaude             — HTML/CSS/JS/API Anthropic <span class="mt-dim">2026</span>',
+      '  <span class="mt-green">[03]</span> L\'Atelier du Détail     — HTML/CSS/JS/Java/Spring   <span class="mt-dim">2026</span>',
+      '  <span class="mt-green">[04]</span> Portfolio v4.2          — JS/GSAP/CSS3              <span class="mt-dim">2026</span>',
+      '  <span class="mt-dim">[05]</span> <span class="mt-dim">???                     — COMING SOON</span>',
       '  \u2192 <span class="mt-white">open projects</span> pour voir tous les projets',
     ].join('\n'),
 
