@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SetupClaude — Jibril Filali</title>
+  <meta name="description" content="Détail du projet SetupClaude : guide d'installation Claude Code en français avec terminal IA intégré via l'API Anthropic.">
+  <meta name="author" content="Jibril Filali">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- LOADER TERMINAL -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-lines">
+        <p class="loader-line"><span class="ts">[ 0.000 ]</span> Initializing portfolio...</p>
+        <p class="loader-line"><span class="ts">[ 0.212 ]</span> Loading modules... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.445 ]</span> Mounting filesystem... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.673 ]</span> Starting services... <span class="ok">OK</span></p>
+        <p class="loader-line"><span class="ts">[ 0.891 ]</span> Welcome, user.</p>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+        <span class="loader-pct" id="loaderPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- MATRIX CANVAS -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- SCANLINE -->
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="prompt">~$</span>
+      <span class="logo-text">jibril_filali</span>
+      <span class="cursor-blink">▮</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html"    class="nav-link" data-index="01">./about</a></li>
+      <li><a href="projects.html" class="nav-link active" data-index="02">./projects</a></li>
+      <li><a href="skills.html"   class="nav-link" data-index="03">./skills</a></li>
+      <li><a href="contact.html"  class="nav-link" data-index="04">./contact</a></li>
+    </ul>
+    <button class="nav-terminal-btn" id="navTerminalBtn" title="Ouvrir le terminal [` ]">[>_]</button>
+    <button class="nav-sound-btn" id="soundToggle" title="Toggle matrix sound">[♪ OFF]</button>
+    <a href="contact.html" class="nav-cta">[ Contact ]</a>
+    <button class="nav-menu" id="navMenu" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <a href="about.html"    class="mobile-link">./about</a>
+      <a href="projects.html" class="mobile-link">./projects</a>
+      <a href="skills.html"   class="mobile-link">./skills</a>
+      <a href="contact.html"  class="mobile-link">./contact</a>
+      <div class="mobile-menu-footer">
+        <a href="https://github.com/Jibril-Filali" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-wrap">
+    <section class="section" id="project-detail">
+      <div class="container">
+
+        <!-- RETOUR -->
+        <div class="project-back reveal-text">
+          <a href="projects.html" class="term-btn term-btn--ghost">[ ← Retour aux projets ]</a>
+        </div>
+
+        <!-- HEADER -->
+        <div class="cmd-header reveal-text">
+          <span class="prompt">root@projects:~$</span> cat ./setupclaude/README.md
+        </div>
+
+        <div class="project-item reveal-text" style="cursor:default; margin-bottom:3rem">
+          <div class="project-header-row">
+            <span class="project-index">[ 02 ]</span>
+            <span class="project-status-dot active"></span>
+            <span class="project-status-label">DEPLOYED</span>
+            <span class="project-date">2026</span>
+          </div>
+          <h1 class="project-name">&gt; SetupClaude</h1>
+          <p class="project-desc">
+            Guide en français pour installer et configurer Claude Code. La documentation officielle n'est pas toujours simple à suivre — j'ai voulu faire quelque chose de direct. Un terminal IA est intégré dans la page : tu tapes une question, Claude Haiku répond via l'API Anthropic.
+          </p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>API Anthropic</span>
+          </div>
+        </div>
+
+        <!-- FONCTIONNALITÉS + CONTEXTE -->
+        <div class="cmd-header reveal-text">
+          <span class="prompt">root@projects:~$</span> cat ./setupclaude/features.txt
+        </div>
+
+        <div class="project-detail-cols reveal-text">
+          <div class="project-features" style="margin-top:0">
+            <p class="feature-title">$ Fonctionnalités</p>
+            <ul class="features-list">
+              <li>Guide en 12 sections (installation → workflow avancé)</li>
+              <li>Terminal IA flottant — Claude Haiku en temps réel</li>
+              <li>Cheat sheet interactive des commandes Claude Code</li>
+              <li>Kit étudiant téléchargeable (.zip)</li>
+            </ul>
+          </div>
+          <div class="project-features" style="margin-top:0">
+            <p class="feature-title">$ Contexte</p>
+            <ul class="features-list">
+              <li>Projet personnel — aucun framework</li>
+              <li>Déployé sur GitHub Pages</li>
+              <li>Clé API gérée côté client (header X-API-Key)</li>
+              <li>Zero dépendance back-end</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- EXTRAIT DE CODE -->
+        <div class="cmd-header reveal-text" style="margin-top:3rem">
+          <span class="prompt">root@projects:~$</span> cat ./setupclaude/js/terminal.js
+        </div>
+
+        <div class="about-terminal reveal-text">
+          <div class="terminal-titlebar">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+            <span class="terminal-title-text">terminal.js</span>
+          </div>
+          <div class="terminal-body">
+<pre><code><span class="c-comment">// Appel API Anthropic — Claude Haiku en temps réel</span>
+<span class="c-kw">async function</span> <span class="c-fn">sendToClaude</span>(prompt) {
+  <span class="c-kw">const</span> res = <span class="c-kw">await</span> <span class="c-fn">fetch</span>(<span class="c-str">'https://api.anthropic.com/v1/messages'</span>, {
+    method: <span class="c-str">'POST'</span>,
+    headers: {
+      <span class="c-str">'x-api-key'</span>:           apiKey,
+      <span class="c-str">'anthropic-version'</span>:   <span class="c-str">'2023-06-01'</span>,
+      <span class="c-str">'content-type'</span>:        <span class="c-str">'application/json'</span>
+    },
+    body: <span class="c-fn">JSON.stringify</span>({
+      model:      <span class="c-str">'claude-haiku-4-5-20251001'</span>,
+      max_tokens: <span class="c-num">512</span>,
+      messages:   [{ role: <span class="c-str">'user'</span>, content: prompt }]
+    })
+  });
+  <span class="c-kw">const</span> data = <span class="c-kw">await</span> res.<span class="c-fn">json</span>();
+  <span class="c-kw">return</span> data.content[<span class="c-num">0</span>].text;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- APERÇU -->
+        <div class="cmd-header reveal-text" style="margin-top:3rem">
+          <span class="prompt">root@projects:~$</span> ls ./setupclaude/screenshots/
+        </div>
+
+        <div class="project-screen-wrap reveal-text">
+          <div class="project-browser-bar">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+            <span class="browser-url">setupclaude.github.io</span>
+          </div>
+          <!-- Remplacer ce bloc par <img src="screenshots/setupclaude.png" class="project-screen-img" alt="Aperçu SetupClaude"> quand disponible -->
+          <div class="project-screen-placeholder">
+            <span class="c-comment">[ aucune capture locale — voir le site en direct ]</span>
+            <a href="https://setupclaude.github.io/" target="_blank" rel="noopener">&gt; Ouvrir le site</a>
+          </div>
+        </div>
+
+        <!-- LIENS -->
+        <div class="hero-cta reveal-text" style="margin-top:3rem; justify-content:flex-start">
+          <a href="https://setupclaude.github.io/" target="_blank" rel="noopener" class="term-btn">[ Voir le site en direct ]</a>
+          <a href="projects.html" class="term-btn term-btn--ghost">[ ← Retour aux projets ]</a>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-col-title">$ Navigation</p>
+          <nav class="footer-nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer-col-title">$ Connect</p>
+          <div class="footer-socials">
+            <a href="https://github.com/Jibril-Filali" class="footer-social-link" target="_blank" rel="noopener">💻 GitHub</a>
+            <a href="https://www.linkedin.com/in/jibril-filali-59b02b390/" class="footer-social-link" target="_blank" rel="noopener">💼 LinkedIn</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">$ Quote</p>
+          <p class="footer-quote">"Talk is cheap. Show me the code." — Linus Torvalds</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom-left"><span class="prompt">~$</span> Developed with ❤️ by Jibril Filali · 2026</p>
+        <div class="footer-bottom-right">
+          <span class="footer-online"><span class="availability-dot"></span> ONLINE</span>
+          <a href="easteregg.html" class="footer-secret">???</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MINI TERMINAL -->
+  <div class="mini-terminal" id="miniTerminal" aria-hidden="true">
+    <div class="mt-resize-handle" id="mtResizeHandle"></div>
+    <div class="mt-header">
+      <span class="mt-dots">
+        <span class="mt-dot" id="mtDotClose" style="background:#ff5f57" title="Fermer"></span>
+        <span class="mt-dot" id="mtDotMin"   style="background:#febc2e" title="Réduire"></span>
+        <span class="mt-dot" id="mtDotMax"   style="background:#28c840" title="Agrandir"></span>
+      </span>
+      <span class="mt-title">jibril@portfolio:~$</span>
+      <span class="mt-hint">[ ` ] ouvrir · drag pour redimensionner</span>
+      <button class="mt-fullscreen" id="mtFullscreen" title="Plein écran">[ ⛶ ]</button>
+      <button class="mt-close" id="mtClose">[ ✕ ]</button>
+    </div>
+    <div class="mt-output" id="mtOutput" data-lenis-prevent></div>
+    <div class="mt-input-row">
+      <span class="mt-prompt-inline">~$</span>
+      <input type="text" id="mtInput" class="mt-input" placeholder="type a command..." autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top-btn" id="scrollTop">[ ↑ TOP ]</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
