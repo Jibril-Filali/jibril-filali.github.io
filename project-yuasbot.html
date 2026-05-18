@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L'Atelier du Détail · Jibril Filali</title>
-  <meta name="description" content="Détail du projet L'Atelier du Détail : boutique e-commerce fictive en HTML/CSS/JS avec gestion du panier en localStorage et admin protégé par SHA-256.">
+  <title>yuAs69Bots · Jibril Filali</title>
+  <meta name="description" content="Détail du projet yuAs69Bots : bot Discord communautaire francophone tout-en-un, modération IA contextuelle (Mistral), anti-raid intelligent, niveaux XP, tickets DM, monétisation Stripe et PayPal. 7 mois de développement, 38 modules, 65+ commandes.">
   <meta name="author" content="Jibril Filali">
+  <meta property="og:title" content="yuAs69Bots · Jibril Filali">
+  <meta property="og:description" content="Bot Discord communautaire FR tout-en-un. Modération IA, anti-raid, niveaux XP, tickets, paiements. 7 mois de dev, 38 modules, 65+ commandes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jibril-filali.github.io/project-yuasbot.html">
+  <link rel="canonical" href="https://jibril-filali.github.io/project-yuasbot.html">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,63 +96,71 @@
 
         <!-- HEADER -->
         <div class="cmd-header reveal-text">
-          <span class="prompt">root@projects:~$</span> cat ./atelier/README.md
+          <span class="prompt">root@projects:~$</span> cat ./yuasbot/README.md
         </div>
 
         <div class="project-item reveal-text" style="cursor:default; margin-bottom:3rem">
           <div class="project-header-row">
-            <span class="project-index">[ 03 ]</span>
+            <span class="project-index">[ 04 ]</span>
             <span class="project-status-dot active"></span>
             <span class="project-status-label">DEPLOYED</span>
             <span class="project-date">2026</span>
           </div>
-          <h1 class="project-name">&gt; L'Atelier du Détail</h1>
+          <h1 class="project-name">&gt; yuAs69Bots</h1>
           <p class="project-desc">
-            Boutique e-commerce fictive développée de A à Z sans backend réel. Les produits, le panier et le thème du site sont entièrement gérés en localStorage. L'espace admin est protégé par un hash SHA-256 calculé côté client. Projet école en BUT MMI.
+            Bot Discord FR tout-en-un. 7 mois de dev, 38 modules, 65+ commandes. L'idée de départ : remplacer MEE6, Dyno, Tickets Bot et Wick par un seul bot pensé en français, avec une vraie modération IA (pas juste des regex sur des mots interdits). Tourne en prod sur Render, monétisé via codes premium Stripe et PayPal.
           </p>
           <div class="project-tech">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Java</span><span>Spring Boot</span>
+            <span>Python</span><span>discord.py</span><span>MongoDB</span><span>aiohttp</span><span>API Mistral</span><span>Stripe</span><span>PayPal</span><span>Sentry</span>
           </div>
         </div>
 
         <!-- POURQUOI -->
         <div class="cmd-header reveal-text">
-          <span class="prompt">root@projects:~$</span> cat ./atelier/pourquoi.txt
+          <span class="prompt">root@projects:~$</span> cat ./yuasbot/pourquoi.txt
         </div>
         <div class="reveal-text" style="margin-bottom:3rem">
-          <p class="about-p">L'idée de ce projet, c'était de construire un e-commerce complet sans passer par un backend. Tout ce qu'on attend d'un shop en ligne — catalogue, panier, gestion des stocks, interface admin — devait fonctionner uniquement avec le navigateur. Une contrainte volontaire pour explorer les limites du JavaScript côté client.</p>
-          <p class="about-p">La partie la plus intéressante était la <span class="highlight">sécurisation de l'espace admin</span> : plutôt qu'un vrai système d'authentification serveur, j'ai implémenté une vérification par hash SHA-256. Le mot de passe n'est jamais stocké en clair — seul son hash est comparé, calculé directement dans le navigateur via l'API Web Crypto.</p>
+          <p class="about-p">Sur les serveurs Discord FR, le problème c'est que tu dois cumuler 3 ou 4 bots anglophones pour avoir le minimum, et leur modération basée sur des listes de mots interdits se fait contourner en cinq minutes. Le verlan, l'argot, les fautes volontaires, rien n'est pris en compte. Et la moitié des fonctions qui servent vraiment sont derrière un paywall.</p>
+          <p class="about-p">yuAs69Bots, c'est ma réponse à ça. Un <span class="highlight">seul bot, en français, avec une modération IA</span> qui comprend le sens et pas juste les mots. Sept mois de dev pour arriver à quelque chose de stable en prod : 38 cogs (modération, anti-raid, niveaux, tickets, giveaways, confessions, etc.), un mute progressif de 5 minutes à une semaine selon les récidives, et des codes premium via webhooks Stripe et PayPal.</p>
         </div>
 
         <!-- FONCTIONNALITÉS + CONTEXTE -->
         <div class="cmd-header reveal-text">
-          <span class="prompt">root@projects:~$</span> cat ./atelier/features.txt
+          <span class="prompt">root@projects:~$</span> cat ./yuasbot/features.txt
         </div>
 
         <div class="project-detail-cols reveal-text">
           <div class="project-features" style="margin-top:0">
             <p class="feature-title">$ Fonctionnalités</p>
             <ul class="features-list">
-              <li>Catalogue produits dynamique (localStorage)</li>
-              <li>Panier persistant entre les sessions</li>
-              <li>Thème du site configurable depuis l'admin</li>
-              <li>Authentification admin par hash SHA-256</li>
+              <li>Modération IA contextuelle (Mistral, FR natif)</li>
+              <li>Mute progressif anti-récidive : 5min → 1 semaine</li>
+              <li>Anti-raid IA avec trust score à l'arrivée</li>
+              <li>Niveaux XP texte ET vocal (rare sur les bots FR)</li>
+              <li>Tickets DM bidirectionnels (DM bot ↔ thread staff)</li>
+              <li>Digest quotidien automatique de l'activité serveur</li>
+              <li>Onboarding interactif (quiz qui attribue les rôles)</li>
+              <li>Monétisation premium via codes redeem</li>
             </ul>
           </div>
           <div class="project-features" style="margin-top:0">
-            <p class="feature-title">$ Contexte</p>
+            <p class="feature-title">$ Contexte technique</p>
             <ul class="features-list">
-              <li>Projet école BUT MMI — Troyes</li>
-              <li>Aucun backend, zero base de données</li>
-              <li>Déployé sur GitHub Pages</li>
-              <li>Java / Spring Boot pour la partie cours associée</li>
+              <li>~11 000 lignes de Python, 47 fichiers</li>
+              <li>38 cogs chargés dynamiquement au boot</li>
+              <li>MongoDB (motor, async) pour la persistance</li>
+              <li>Serveur aiohttp pour les webhooks Stripe et PayPal</li>
+              <li>Déployé sur Render (free tier + UptimeRobot pour le 24/7)</li>
+              <li>Monitoring crashes en prod via Sentry</li>
+              <li>Système de tiers (free / premium) avec quotas par feature</li>
+              <li>Toutes les commandes en slash (pas de préfixe)</li>
             </ul>
           </div>
         </div>
 
         <!-- EXTRAIT DE CODE -->
         <div class="cmd-header reveal-text" style="margin-top:3rem">
-          <span class="prompt">root@projects:~$</span> cat ./atelier/js/admin.js
+          <span class="prompt">root@projects:~$</span> cat ./yuasbot/cogs/aimod.py
         </div>
 
         <div class="about-terminal reveal-text">
@@ -155,26 +168,40 @@
             <span class="dot dot--red"></span>
             <span class="dot dot--yellow"></span>
             <span class="dot dot--green"></span>
-            <span class="terminal-title-text">admin.js</span>
+            <span class="terminal-title-text">aimod.py — modération IA + mute progressif</span>
           </div>
           <div class="terminal-body">
-<pre><code><span class="c-comment">// Vérification du mot de passe admin par SHA-256 (Web Crypto API)</span>
-<span class="c-kw">async function</span> <span class="c-fn">checkAdminPassword</span>(input) {
-  <span class="c-kw">const</span> encoder = <span class="c-kw">new</span> TextEncoder();
-  <span class="c-kw">const</span> data    = encoder.<span class="c-fn">encode</span>(input);
-  <span class="c-kw">const</span> hashBuf = <span class="c-kw">await</span> crypto.subtle.<span class="c-fn">digest</span>(<span class="c-str">'SHA-256'</span>, data);
-  <span class="c-kw">const</span> hashArr = Array.<span class="c-fn">from</span>(<span class="c-kw">new</span> Uint8Array(hashBuf));
-  <span class="c-kw">const</span> hashHex = hashArr
-    .<span class="c-fn">map</span>(b => b.<span class="c-fn">toString</span>(<span class="c-num">16</span>).<span class="c-fn">padStart</span>(<span class="c-num">2</span>, <span class="c-str">'0'</span>))
-    .<span class="c-fn">join</span>(<span class="c-str">''</span>);
-  <span class="c-kw">return</span> hashHex === ADMIN_HASH;
-}</code></pre>
+<pre><code><span class="c-comment"># Mute progressif selon le nombre de recidives detectees par l'IA.</span>
+<span class="c-comment"># Index 0 = 1ere offense, index 8 = 9eme offense et plus.</span>
+OFFENSE_TIMEOUTS_SECONDS = [
+    <span class="c-num">5</span>  * <span class="c-num">60</span>,           <span class="c-comment"># 1ere   : 5 min</span>
+    <span class="c-num">15</span> * <span class="c-num">60</span>,           <span class="c-comment"># 2eme   : 15 min</span>
+    <span class="c-num">30</span> * <span class="c-num">60</span>,           <span class="c-comment"># 3eme   : 30 min</span>
+    <span class="c-num">2</span>  * <span class="c-num">3600</span>,         <span class="c-comment"># 4eme   : 2 h</span>
+    <span class="c-num">6</span>  * <span class="c-num">3600</span>,         <span class="c-comment"># 5eme   : 6 h</span>
+    <span class="c-num">12</span> * <span class="c-num">3600</span>,         <span class="c-comment"># 6eme   : 12 h</span>
+    <span class="c-num">24</span> * <span class="c-num">3600</span>,         <span class="c-comment"># 7eme   : 24 h</span>
+    <span class="c-num">48</span> * <span class="c-num">3600</span>,         <span class="c-comment"># 8eme   : 48 h</span>
+    <span class="c-num">7</span>  * <span class="c-num">24</span> * <span class="c-num">3600</span>,    <span class="c-comment"># 9eme+  : 1 semaine</span>
+]
+
+<span class="c-kw">async def</span> <span class="c-fn">_analyse_with_mistral</span>(content: str) -&gt; dict:
+    <span class="c-str">"""Envoie le message a Mistral Moderation et renvoie les scores 0-1 par categorie."""</span>
+    <span class="c-kw">async with</span> aiohttp.<span class="c-fn">ClientSession</span>() <span class="c-kw">as</span> session:
+        <span class="c-kw">async with</span> session.<span class="c-fn">post</span>(
+            MISTRAL_URL,
+            headers={<span class="c-str">"Authorization"</span>: <span class="c-kw">f</span><span class="c-str">"Bearer {MISTRAL_API_KEY}"</span>},
+            json={<span class="c-str">"model"</span>: MISTRAL_MODEL, <span class="c-str">"input"</span>: content},
+            timeout=<span class="c-num">5</span>,
+        ) <span class="c-kw">as</span> res:
+            data = <span class="c-kw">await</span> res.<span class="c-fn">json</span>()
+            <span class="c-kw">return</span> data[<span class="c-str">"results"</span>][<span class="c-num">0</span>][<span class="c-str">"category_scores"</span>]</code></pre>
           </div>
         </div>
 
         <!-- APERÇU -->
         <div class="cmd-header reveal-text" style="margin-top:3rem">
-          <span class="prompt">root@projects:~$</span> ls ./atelier/screenshots/
+          <span class="prompt">root@projects:~$</span> ls ./yuasbot/screenshots/
         </div>
 
         <div class="project-screen-wrap reveal-text">
@@ -182,18 +209,18 @@
             <span class="dot dot--red"></span>
             <span class="dot dot--yellow"></span>
             <span class="dot dot--green"></span>
-            <span class="browser-url">atelier-du-detail.github.io</span>
+            <span class="browser-url">discord.gg/6RzwPAtFvq</span>
           </div>
-          <!-- Remplacer ce bloc par <img src="screenshots/atelier.png" class="project-screen-img" alt="Aperçu L'Atelier du Détail"> quand disponible -->
           <div class="project-screen-placeholder">
-            <span class="c-comment">[ aucune capture locale — voir le site en direct ]</span>
-            <a href="https://atelier-du-detail.github.io" target="_blank" rel="noopener">&gt; Ouvrir le site</a>
+            <span class="c-comment">[ un bot Discord ne se voit pas en screenshot — viens le tester en live ]</span>
+            <a href="https://discord.gg/6RzwPAtFvq" target="_blank" rel="noopener">&gt; Rejoindre le serveur officiel</a>
           </div>
         </div>
 
         <!-- LIENS -->
-        <div class="hero-cta reveal-text" style="margin-top:3rem; justify-content:flex-start">
-          <a href="https://atelier-du-detail.github.io" target="_blank" rel="noopener" class="term-btn">[ Voir le site en direct ]</a>
+        <div class="hero-cta reveal-text" style="margin-top:3rem; justify-content:flex-start; flex-wrap:wrap; gap:1rem">
+          <a href="https://discord.gg/6RzwPAtFvq" target="_blank" rel="noopener" class="term-btn">[ Rejoindre le Discord ]</a>
+          <a href="https://yuasbot.onrender.com/" target="_blank" rel="noopener" class="term-btn term-btn--ghost">[ Status du bot ]</a>
           <a href="projects.html" class="term-btn term-btn--ghost">[ ← Retour aux projets ]</a>
         </div>
 
@@ -224,7 +251,7 @@
         </div>
         <div>
           <p class="footer-col-title">$ Quote</p>
-          <p class="footer-quote">"First, solve the problem. Then, write the code." — John Johnson</p>
+          <p class="footer-quote">"Make it work, make it right, make it fast." — Kent Beck</p>
         </div>
       </div>
       <div class="footer-bottom">
