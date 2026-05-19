@@ -164,30 +164,30 @@
         </div>
 
         <div class="reveal-text" style="margin-bottom:3rem">
-          <p class="about-p"><span class="highlight">Update mai 2026</span>. La grosse session de l'année : un dashboard web (le plus gros morceau), 4 nouveaux cogs, et pas mal de boulot sécu derrière.</p>
+          <p class="about-p"><span class="highlight">Update mai 2026</span>. Grosse session : un dashboard web pour configurer le bot dans le navigateur, 4 nouvelles features, et tout ce qu'il faut côté sécu pour exposer un truc sur internet.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 1. Dashboard web</p>
-          <p class="about-p">Une vraie page web où les admins peuvent configurer le bot sans toucher aux slash commands. Login avec Discord (OAuth2), session chiffrée en cookie. Trois onglets par serveur : le message de welcome, la modération IA (sliders pour les seuils, salons à ignorer), et le premium. Stack côté serveur : aiohttp + Jinja2. Côté front : Bootstrap 5 en thème dark. Quand un admin change un truc, le bot relit la config direct, pas besoin de redémarrer.</p>
+          <p class="about-p">Le plus gros morceau. Une page où les admins peuvent configurer le bot sans utiliser de commandes : connexion via Discord, trois onglets par serveur (message d'accueil, modération IA, premium). Quand un admin change un réglage, le bot l'applique direct, sans redémarrer.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 2. /joinall et /quitall (owner only)</p>
-          <p class="about-p">Quand un user clique sur le lien d'install OAuth2, je récupère son token et je le garde en base. Après, /joinall les ajoute tous d'un coup à un serveur que je choisis. /quitall fait l'inverse. Throttle à 1 requête par seconde, sinon Discord râle.</p>
+          <p class="feature-title" style="margin-top:2rem">$ 2. /joinall et /quitall</p>
+          <p class="about-p">Deux commandes que je suis le seul à pouvoir utiliser. Elles permettent d'ajouter ou de retirer en masse des utilisateurs sur un serveur. Pratique pour gérer mon réseau de bots et de serveurs.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 3. Server counters</p>
-          <p class="about-p">Des salons vocaux verrouillés en haut du serveur qui affichent les stats live : membres, bots, rôles, boosts, etc. Refresh toutes les 10 minutes (Discord cap à 2 renames par tranche de 10 min sur un même channel, donc pas le choix). Setup en une commande.</p>
+          <p class="feature-title" style="margin-top:2rem">$ 3. Compteurs en direct</p>
+          <p class="about-p">Des salons vocaux verrouillés en haut du serveur qui affichent les stats (membres, bots, rôles, boosts, etc.) et se mettent à jour tout seuls.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 4. Salons vocaux temporaires</p>
-          <p class="about-p">Le classique <span class="highlight">join-to-create</span>. Tu rejoins un salon spécial, le bot t'en crée un perso où t'es admin, et ça se supprime tout seul quand il y a plus personne dedans. Tu peux renommer, lock, kick, transférer l'ownership à un autre membre.</p>
+          <p class="about-p">Tu rejoins un salon spécial, le bot t'en crée un perso où t'es admin, et ça se supprime tout seul quand il y a plus personne. Tu peux renommer, kick, verrouiller, transférer l'ownership.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 5. Sécurisation du dashboard</p>
-          <p class="about-p">Un dashboard exposé sur internet, ça veut dire qu'il faut sécuriser sérieusement. Middleware qui pose les bons headers (CSP, HSTS 2 ans, X-Frame anti-clickjacking), cookies Secure + SameSite + httponly. Et un rate limit sur /redeem (10 tentatives par heure) pour bloquer le bruteforce de codes premium.</p>
+          <p class="feature-title" style="margin-top:2rem">$ 5. Sécurité du dashboard</p>
+          <p class="about-p">Le dashboard est exposé sur internet, donc il fallait sérieusement le sécuriser. Protections contre les attaques classiques (clickjacking, vol de cookies, etc.) et limite du nombre de tentatives quand quelqu'un active un code premium, pour éviter le bruteforce.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 6. Faire découvrir le dashboard</p>
-          <p class="about-p">Personne va sur un dashboard si on lui dit pas qu'il existe. J'ai mis 4 points d'entrée : la commande /dashboard, un champ dans les embeds /premium et /botinfo, un bouton sur la page status, et un DM auto au owner quand le bot rejoint un nouveau serveur.</p>
+          <p class="about-p">Personne ira sur un dashboard si on le lui dit pas. J'ai ajouté plusieurs points d'entrée : une commande dédiée, un bouton sur la page status du bot, et un DM automatique au propriétaire d'un serveur quand le bot le rejoint.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 7. Doc client et scripts marketing</p>
-          <p class="about-p">PDF client de 20 pages mis à jour avec les nouvelles sections (counters, tempvoice, dashboard) et un tableau Free vs Premium refait. Et 3 scripts vidéo prêts à filmer (TikTok, demo serveur, YouTube long format) que j'exporte en PDF avec un petit script Python.</p>
+          <p class="feature-title" style="margin-top:2rem">$ 7. Doc et marketing</p>
+          <p class="about-p">PDF de 20 pages mis à jour avec les nouvelles features, et 3 scripts vidéo prêts à filmer (TikTok, demo, YouTube).</p>
 
-          <p class="about-p" style="margin-top:2rem; opacity:0.75"># La galère du moment : Render forçait Python 3.14 et ça cassait Fernet (la lib de crypto pour les cookies). J'ai pin Python à 3.11.9 via .python-version (les autres méthodes étaient ignorées par Render), et j'ai fini par remplacer Fernet par PyNaCl parce que ça marchait toujours pas même sur 3.11.</p>
+          <p class="about-p" style="margin-top:2rem; opacity:0.75"># La galère du moment : un changement de version de Python sur l'hébergeur a cassé la lib qui chiffre les cookies du dashboard. J'ai dû figer la version de Python et changer de lib de chiffrement.</p>
         </div>
 
         <!-- EXTRAIT DE CODE -->
