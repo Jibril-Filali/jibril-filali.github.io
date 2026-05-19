@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>yuAs69Bots · Jibril Filali</title>
-  <meta name="description" content="Détail du projet yuAs69Bots : bot Discord communautaire francophone tout-en-un, modération IA contextuelle (Mistral), anti-raid intelligent, niveaux XP, tickets DM, monétisation Stripe et PayPal. 7 mois de développement, 38 modules, 65+ commandes.">
+  <meta name="description" content="Détail du projet yuAs69Bots : bot Discord communautaire francophone tout-en-un, modération IA contextuelle (Mistral), anti-raid, niveaux XP, tickets DM, monétisation Stripe et PayPal, dashboard web aiohttp + OAuth2 Discord. 8 mois de développement, 41 cogs, 150+ commandes slash.">
   <meta name="author" content="Jibril Filali">
   <meta property="og:title" content="yuAs69Bots · Jibril Filali">
-  <meta property="og:description" content="Bot Discord communautaire FR tout-en-un. Modération IA, anti-raid, niveaux XP, tickets, paiements. 7 mois de dev, 38 modules, 65+ commandes.">
+  <meta property="og:description" content="Bot Discord communautaire FR tout-en-un + dashboard web. Modération IA, anti-raid, niveaux XP, tickets, paiements, OAuth2. 41 cogs, 150+ commandes slash.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jibril-filali.github.io/project-yuasbot.html">
   <link rel="canonical" href="https://jibril-filali.github.io/project-yuasbot.html">
@@ -108,10 +108,10 @@
           </div>
           <h1 class="project-name">&gt; yuAs69Bots</h1>
           <p class="project-desc">
-            Bot Discord FR tout-en-un. 7 mois de dev, 38 modules, 65+ commandes. L'idée de départ : remplacer MEE6, Dyno, Tickets Bot et Wick par un seul bot pensé en français, avec une vraie modération IA (pas juste des regex sur des mots interdits). Tourne en prod sur Render, monétisé via codes premium Stripe et PayPal.
+            Bot Discord FR tout-en-un. 8 mois de dev, 41 cogs, 150+ commandes slash, dashboard web pour configurer le bot sans toucher aux slash. L'idée de départ : remplacer MEE6, Dyno, Tickets Bot et Wick par un seul bot pensé en français, avec une vraie modération IA (pas juste des regex sur des mots interdits). Tourne en prod sur Render, monétisé via codes premium Stripe et PayPal.
           </p>
           <div class="project-tech">
-            <span>Python</span><span>discord.py</span><span>MongoDB</span><span>aiohttp</span><span>API Mistral</span><span>Stripe</span><span>PayPal</span><span>Sentry</span>
+            <span>Python</span><span>discord.py</span><span>MongoDB</span><span>aiohttp</span><span>aiohttp-jinja2</span><span>OAuth2</span><span>PyNaCl</span><span>Bootstrap 5</span><span>Jinja2</span><span>API Mistral</span><span>Stripe</span><span>PayPal</span><span>Sentry</span>
           </div>
         </div>
 
@@ -121,7 +121,7 @@
         </div>
         <div class="reveal-text" style="margin-bottom:3rem">
           <p class="about-p">Sur les serveurs Discord FR, le problème c'est que tu dois cumuler 3 ou 4 bots anglophones pour avoir le minimum, et leur modération basée sur des listes de mots interdits se fait contourner en cinq minutes. Le verlan, l'argot, les fautes volontaires, rien n'est pris en compte. Et la moitié des fonctions qui servent vraiment sont derrière un paywall.</p>
-          <p class="about-p">yuAs69Bots, c'est ma réponse à ça. Un <span class="highlight">seul bot, en français, avec une modération IA</span> qui comprend le sens et pas juste les mots. Sept mois de dev pour arriver à quelque chose de stable en prod : 38 cogs (modération, anti-raid, niveaux, tickets, giveaways, confessions, etc.), un mute progressif de 5 minutes à une semaine selon les récidives, et des codes premium via webhooks Stripe et PayPal.</p>
+          <p class="about-p">yuAs69Bots, c'est ma réponse à ça. Un <span class="highlight">seul bot, en français, avec une modération IA</span> qui comprend le sens et pas juste les mots. Huit mois de dev pour arriver à quelque chose de stable en prod : 41 cogs (modération, anti-raid, niveaux, tickets, giveaways, confessions, salons vocaux temporaires, etc.), 150+ commandes slash réparties dans 24 groupes, un mute progressif de 5 minutes à une semaine selon les récidives, des codes premium via webhooks Stripe et PayPal, et un dashboard web pour configurer le tout sans toucher aux slash commands.</p>
         </div>
 
         <!-- FONCTIONNALITÉS + CONTEXTE -->
@@ -138,24 +138,56 @@
               <li>Anti-raid IA avec trust score à l'arrivée</li>
               <li>Niveaux XP texte ET vocal (rare sur les bots FR)</li>
               <li>Tickets DM bidirectionnels (DM bot ↔ thread staff)</li>
-              <li>Digest quotidien automatique de l'activité serveur</li>
-              <li>Onboarding interactif (quiz qui attribue les rôles)</li>
+              <li>Dashboard web pour config welcome / aimod / premium</li>
+              <li>Salons vocaux temporaires (join-to-create) + counters auto</li>
               <li>Monétisation premium via codes redeem</li>
             </ul>
           </div>
           <div class="project-features" style="margin-top:0">
             <p class="feature-title">$ Contexte technique</p>
             <ul class="features-list">
-              <li>~11 000 lignes de Python, 47 fichiers</li>
-              <li>38 cogs chargés dynamiquement au boot</li>
+              <li>Python côté bot + HTML/CSS/JS côté dashboard</li>
+              <li>41 cogs chargés dynamiquement au boot (24 GroupCogs + 13 cogs commandes + 4 listener-only)</li>
               <li>MongoDB (motor, async) pour la persistance</li>
-              <li>Serveur aiohttp pour les webhooks Stripe et PayPal</li>
-              <li>Déployé sur Render (free tier + UptimeRobot pour le 24/7)</li>
+              <li>aiohttp pour les webhooks Stripe/PayPal + sous-app dashboard</li>
+              <li>OAuth2 Discord (identify + guilds + applications.commands)</li>
+              <li>Sessions chiffrées via PyNaCl (libsodium), security headers stricts</li>
+              <li>Déployé sur Render (Python pinné à 3.11.9 via .python-version)</li>
               <li>Monitoring crashes en prod via Sentry</li>
-              <li>Système de tiers (free / premium) avec quotas par feature</li>
-              <li>Toutes les commandes en slash (pas de préfixe)</li>
             </ul>
           </div>
+        </div>
+
+        <!-- MISE À JOUR MAI 2026 -->
+        <div class="cmd-header reveal-text" style="margin-top:3rem">
+          <span class="prompt">root@projects:~$</span> cat ./yuasbot/CHANGELOG-mai-2026.md
+        </div>
+
+        <div class="reveal-text" style="margin-bottom:3rem">
+          <p class="about-p"><span class="highlight">Update mai 2026</span> — la grosse session de l'année. 4 nouveaux cogs (counters, tempvoice, joinall, bot_onboarding), un dashboard web complet, et tout le hardening sécurité qui va avec.</p>
+
+          <p class="feature-title" style="margin-top:2rem">$ 1. Dashboard web (le gros morceau)</p>
+          <p class="about-p">Interface aiohttp + Jinja2 + Bootstrap 5 (thème dark) montée en sous-app sur /dashboard. Login via Discord OAuth2 (scopes identify + guilds), sessions chiffrées en cookie via PyNaCl (libsodium). Trois onglets de config par serveur : message welcome (embed riche), modération IA (5 sliders de seuils + multi-select des salons/rôles à ignorer), premium (statut + activation de codes). Pattern POST-Redirect-GET avec flash messages. Le cache du cog AIMod est invalidé à chaque save : pas de reboot nécessaire.</p>
+
+          <p class="feature-title" style="margin-top:2rem">$ 2. OAuth2 mass-add / mass-kick (owner-only)</p>
+          <p class="about-p">Flow OAuth2 Discord complet avec scopes identify + applications.commands + guilds.join. Le bot capture le code via redirect_uri, l'échange contre access_token + refresh_token, et stocke le tout en MongoDB. La commande /joinall ajoute en masse tous les users autorisés à un serveur cible (throttle 1 req/sec contre les rate limits Discord), /quitall fait l'inverse.</p>
+
+          <p class="feature-title" style="margin-top:2rem">$ 3. Server counters</p>
+          <p class="about-p">Salons vocaux verrouillés en haut du serveur (catégorie "Statistiques") qui affichent automatiquement membres, humains, bots, rôles, channels et boosts. Refresh toutes les 10 minutes via discord.ext.tasks.loop, calé sur le rate limit Discord (2 renames / 10 min / channel). 6 types de counters, setup en une commande.</p>
+
+          <p class="feature-title" style="margin-top:2rem">$ 4. Salons vocaux temporaires</p>
+          <p class="about-p">Pattern <span class="highlight">join-to-create</span> : un salon "Cliquez pour créer" qui, quand un user le rejoint, lui crée un salon vocal personnel avec lui en owner (perms manage_channels + move_members sur ce salon uniquement). Auto-suppression quand le dernier user quitte. L'owner peut renommer, limiter, verrouiller, kick ou transférer l'ownership.</p>
+
+          <p class="feature-title" style="margin-top:2rem">$ 5. Hardening sécurité du dashboard</p>
+          <p class="about-p">Middleware aiohttp qui pose tous les security headers : X-Frame-Options: DENY (anti-clickjacking), X-Content-Type-Options: nosniff, HSTS 2 ans, Content-Security-Policy avec allowlist stricte (jsdelivr + cdn.discordapp.com), Referrer-Policy, Permissions-Policy. Cookie de session Secure + SameSite=Lax + httponly. Rate limit sur /redeem à 10 tentatives / heure / user pour bloquer le bruteforce de codes premium.</p>
+
+          <p class="feature-title" style="margin-top:2rem">$ 6. Découverte in-product du dashboard</p>
+          <p class="about-p">Quatre entry points pour que les users tombent dessus sans tuto vidéo : slash command /dashboard, champ "Dashboard web" dans les embeds /premium et /botinfo, bouton "Dashboard" sur la page status publique, et un nouveau cog bot_onboarding.py qui DM le owner d'un nouveau serveur dès l'ajout du bot (avec l'URL et un mini-guide de démarrage).</p>
+
+          <p class="feature-title" style="margin-top:2rem">$ 7. Doc client + marketing</p>
+          <p class="about-p">PDF client-facing (~20 pages) mis à jour : deux nouvelles sous-sections (counters + tempvoice), section dédiée au dashboard, tableau Free vs Premium étendu, stat passée à 85 commandes. Trois scripts vidéo prêts à filmer (TikTok 45s, demo serveur 1-2 min, YouTube 3-5 min) exportables en PDF via un script Python.</p>
+
+          <p class="about-p" style="margin-top:2rem; opacity:0.75"># Bug fix notable : Render utilisait Python 3.14 par défaut (cryptography/Fernet cassé dessus). Pin de Python à 3.11.9 via .python-version (runtime.txt et PYTHON_VERSION ignorés par Render), puis switch d'EncryptedCookieStorage à NaClCookieStorage parce que Fernet restait instable même sur 3.11.</p>
         </div>
 
         <!-- EXTRAIT DE CODE -->
@@ -196,6 +228,100 @@ OFFENSE_TIMEOUTS_SECONDS = [
         ) <span class="c-kw">as</span> res:
             data = <span class="c-kw">await</span> res.<span class="c-fn">json</span>()
             <span class="c-kw">return</span> data[<span class="c-str">"results"</span>][<span class="c-num">0</span>][<span class="c-str">"category_scores"</span>]</code></pre>
+          </div>
+        </div>
+
+        <!-- SNIPPET DASHBOARD : SECURITY HEADERS -->
+        <div class="cmd-header reveal-text" style="margin-top:3rem">
+          <span class="prompt">root@projects:~$</span> cat ./yuasbot/web/dashboard/__init__.py
+        </div>
+
+        <div class="about-terminal reveal-text">
+          <div class="terminal-titlebar">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+            <span class="terminal-title-text">dashboard/__init__.py — security headers middleware</span>
+          </div>
+          <div class="terminal-body">
+<pre><code><span class="c-comment"># CSP strict : on autorise jsdelivr (Bootstrap) et cdn.discordapp.com</span>
+<span class="c-comment"># (avatars + icones de serveur). Pas d'inline JS sauf 'unsafe-inline' style.</span>
+_CSP = (
+    <span class="c-str">"default-src 'self'; "</span>
+    <span class="c-str">"script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; "</span>
+    <span class="c-str">"style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; "</span>
+    <span class="c-str">"img-src 'self' https://cdn.discordapp.com data:; "</span>
+    <span class="c-str">"frame-ancestors 'none'; base-uri 'self'; form-action 'self'"</span>
+)
+
+<span class="c-fn">@web.middleware</span>
+<span class="c-kw">async def</span> <span class="c-fn">_security_headers_mw</span>(request, handler):
+    response = <span class="c-kw">await</span> <span class="c-fn">handler</span>(request)
+    response.headers.<span class="c-fn">setdefault</span>(<span class="c-str">"X-Frame-Options"</span>, <span class="c-str">"DENY"</span>)
+    response.headers.<span class="c-fn">setdefault</span>(<span class="c-str">"X-Content-Type-Options"</span>, <span class="c-str">"nosniff"</span>)
+    response.headers.<span class="c-fn">setdefault</span>(<span class="c-str">"Strict-Transport-Security"</span>, <span class="c-str">"max-age=63072000; includeSubDomains"</span>)
+    response.headers.<span class="c-fn">setdefault</span>(<span class="c-str">"Content-Security-Policy"</span>, _CSP)
+    response.headers.<span class="c-fn">setdefault</span>(<span class="c-str">"Referrer-Policy"</span>, <span class="c-str">"same-origin"</span>)
+    response.headers.<span class="c-fn">setdefault</span>(<span class="c-str">"Permissions-Policy"</span>, <span class="c-str">"geolocation=(), microphone=(), camera=()"</span>)
+    <span class="c-kw">return</span> response
+
+<span class="c-comment"># Cookie de session : Secure (HTTPS only) + SameSite=Lax (mitigation CSRF</span>
+<span class="c-comment"># basique : cookie pas envoye sur cross-site sauf navigation directe).</span>
+<span class="c-fn">session_setup</span>(app, <span class="c-fn">NaClCookieStorage</span>(
+    nacl_key, cookie_name=<span class="c-str">"yuasbot_dashboard"</span>,
+    secure=<span class="c-kw">True</span>, samesite=<span class="c-str">"Lax"</span>, max_age=<span class="c-num">7</span> * <span class="c-num">24</span> * <span class="c-num">3600</span>,
+))</code></pre>
+          </div>
+        </div>
+
+        <!-- SNIPPET TEMPVOICE : JOIN-TO-CREATE -->
+        <div class="cmd-header reveal-text" style="margin-top:3rem">
+          <span class="prompt">root@projects:~$</span> cat ./yuasbot/cogs/tempvoice.py
+        </div>
+
+        <div class="about-terminal reveal-text">
+          <div class="terminal-titlebar">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+            <span class="terminal-title-text">tempvoice.py — pattern join-to-create</span>
+          </div>
+          <div class="terminal-body">
+<pre><code><span class="c-comment"># Quand un user rejoint le "creator channel", on lui cree un salon vocal</span>
+<span class="c-comment"># perso avec lui en owner, puis on l'y deplace. Auto-cleanup si vide.</span>
+<span class="c-fn">@commands.Cog.listener</span>()
+<span class="c-kw">async def</span> <span class="c-fn">on_voice_state_update</span>(self, member, before, after):
+    <span class="c-kw">if</span> member.bot:
+        <span class="c-kw">return</span>
+    cfg = <span class="c-kw">await</span> <span class="c-fn">get_config</span>(member.guild.id)
+    <span class="c-kw">if</span> cfg <span class="c-kw">is None</span>:
+        <span class="c-kw">return</span>
+
+    <span class="c-comment"># 1) Creation : user vient de rejoindre le creator channel</span>
+    <span class="c-kw">if</span> after.channel <span class="c-kw">is not None</span> <span class="c-kw">and</span> after.channel.id == cfg[<span class="c-str">"creator_channel_id"</span>]:
+        category = member.guild.<span class="c-fn">get_channel</span>(cfg[<span class="c-str">"category_id"</span>])
+        ch = <span class="c-kw">await</span> member.guild.<span class="c-fn">create_voice_channel</span>(
+            name=<span class="c-kw">f</span><span class="c-str">"Salon de {member.display_name}"</span>[:<span class="c-num">100</span>],
+            category=category,
+            user_limit=cfg.<span class="c-fn">get</span>(<span class="c-str">"default_user_limit"</span>, <span class="c-num">0</span>),
+            overwrites={
+                member: discord.<span class="c-fn">PermissionOverwrite</span>(
+                    manage_channels=<span class="c-kw">True</span>,
+                    move_members=<span class="c-kw">True</span>,
+                    connect=<span class="c-kw">True</span>,
+                ),
+            },
+            reason=<span class="c-kw">f</span><span class="c-str">"tempvoice create for {member.id}"</span>,
+        )
+        <span class="c-kw">await</span> <span class="c-fn">register_active</span>(ch.id, member.guild.id, member.id)
+        <span class="c-kw">await</span> member.<span class="c-fn">move_to</span>(ch, reason=<span class="c-str">"tempvoice move to own channel"</span>)
+
+    <span class="c-comment"># 2) Cleanup : un user quitte un temp -> on supprime si vide</span>
+    <span class="c-kw">if</span> before.channel <span class="c-kw">is not None</span> <span class="c-kw">and</span> before.channel.id != cfg[<span class="c-str">"creator_channel_id"</span>]:
+        active = <span class="c-kw">await</span> <span class="c-fn">get_active</span>(before.channel.id)
+        <span class="c-kw">if</span> active <span class="c-kw">is not None</span> <span class="c-kw">and</span> <span class="c-fn">len</span>(before.channel.members) == <span class="c-num">0</span>:
+            <span class="c-kw">await</span> before.channel.<span class="c-fn">delete</span>(reason=<span class="c-str">"tempvoice empty cleanup"</span>)
+            <span class="c-kw">await</span> <span class="c-fn">delete_active</span>(before.channel.id)</code></pre>
           </div>
         </div>
 
