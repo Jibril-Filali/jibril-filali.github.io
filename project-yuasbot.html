@@ -121,7 +121,7 @@
         </div>
         <div class="reveal-text" style="margin-bottom:3rem">
           <p class="about-p">Sur les serveurs Discord FR, le problème c'est que tu dois cumuler 3 ou 4 bots anglophones pour avoir le minimum, et leur modération basée sur des listes de mots interdits se fait contourner en cinq minutes. Le verlan, l'argot, les fautes volontaires, rien n'est pris en compte. Et la moitié des fonctions qui servent vraiment sont derrière un paywall.</p>
-          <p class="about-p">yuAs69Bots, c'est ma réponse à ça. Un <span class="highlight">seul bot, en français, avec une modération IA</span> qui comprend le sens et pas juste les mots. Huit mois de dev pour arriver à quelque chose de stable en prod : 41 cogs (modération, anti-raid, niveaux, tickets, giveaways, confessions, salons vocaux temporaires, etc.), 150+ commandes slash réparties dans 24 groupes, un mute progressif de 5 minutes à une semaine selon les récidives, des codes premium via webhooks Stripe et PayPal, et un dashboard web pour configurer le tout sans toucher aux slash commands.</p>
+          <p class="about-p">yuAs69Bots, c'est ma réponse à ça. Un <span class="highlight">seul bot, en français, avec une modération IA</span> qui comprend le sens et pas juste les mots. Huit mois de dev pour arriver à quelque chose de stable en prod : 41 cogs, 150+ commandes slash, un mute progressif de 5 minutes à une semaine selon les récidives, des codes premium via webhooks Stripe et PayPal, et depuis ce mois-ci un dashboard web pour configurer le tout sans toucher aux slash commands.</p>
         </div>
 
         <!-- FONCTIONNALITÉS + CONTEXTE -->
@@ -147,7 +147,7 @@
             <p class="feature-title">$ Contexte technique</p>
             <ul class="features-list">
               <li>Python côté bot + HTML/CSS/JS côté dashboard</li>
-              <li>41 cogs chargés dynamiquement au boot (24 GroupCogs + 13 cogs commandes + 4 listener-only)</li>
+              <li>41 cogs chargés dynamiquement au boot</li>
               <li>MongoDB (motor, async) pour la persistance</li>
               <li>aiohttp pour les webhooks Stripe/PayPal + sous-app dashboard</li>
               <li>OAuth2 Discord (identify + guilds + applications.commands)</li>
@@ -164,30 +164,30 @@
         </div>
 
         <div class="reveal-text" style="margin-bottom:3rem">
-          <p class="about-p"><span class="highlight">Update mai 2026</span> — la grosse session de l'année. 4 nouveaux cogs (counters, tempvoice, joinall, bot_onboarding), un dashboard web complet, et tout le hardening sécurité qui va avec.</p>
+          <p class="about-p"><span class="highlight">Update mai 2026</span>. La grosse session de l'année : un dashboard web (le plus gros morceau), 4 nouveaux cogs, et pas mal de boulot sécu derrière.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 1. Dashboard web (le gros morceau)</p>
-          <p class="about-p">Interface aiohttp + Jinja2 + Bootstrap 5 (thème dark) montée en sous-app sur /dashboard. Login via Discord OAuth2 (scopes identify + guilds), sessions chiffrées en cookie via PyNaCl (libsodium). Trois onglets de config par serveur : message welcome (embed riche), modération IA (5 sliders de seuils + multi-select des salons/rôles à ignorer), premium (statut + activation de codes). Pattern POST-Redirect-GET avec flash messages. Le cache du cog AIMod est invalidé à chaque save : pas de reboot nécessaire.</p>
+          <p class="feature-title" style="margin-top:2rem">$ 1. Dashboard web</p>
+          <p class="about-p">Une vraie page web où les admins peuvent configurer le bot sans toucher aux slash commands. Login avec Discord (OAuth2), session chiffrée en cookie. Trois onglets par serveur : le message de welcome, la modération IA (sliders pour les seuils, salons à ignorer), et le premium. Stack côté serveur : aiohttp + Jinja2. Côté front : Bootstrap 5 en thème dark. Quand un admin change un truc, le bot relit la config direct, pas besoin de redémarrer.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 2. OAuth2 mass-add / mass-kick (owner-only)</p>
-          <p class="about-p">Flow OAuth2 Discord complet avec scopes identify + applications.commands + guilds.join. Le bot capture le code via redirect_uri, l'échange contre access_token + refresh_token, et stocke le tout en MongoDB. La commande /joinall ajoute en masse tous les users autorisés à un serveur cible (throttle 1 req/sec contre les rate limits Discord), /quitall fait l'inverse.</p>
+          <p class="feature-title" style="margin-top:2rem">$ 2. /joinall et /quitall (owner only)</p>
+          <p class="about-p">Quand un user clique sur le lien d'install OAuth2, je récupère son token et je le garde en base. Après, /joinall les ajoute tous d'un coup à un serveur que je choisis. /quitall fait l'inverse. Throttle à 1 requête par seconde, sinon Discord râle.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 3. Server counters</p>
-          <p class="about-p">Salons vocaux verrouillés en haut du serveur (catégorie "Statistiques") qui affichent automatiquement membres, humains, bots, rôles, channels et boosts. Refresh toutes les 10 minutes via discord.ext.tasks.loop, calé sur le rate limit Discord (2 renames / 10 min / channel). 6 types de counters, setup en une commande.</p>
+          <p class="about-p">Des salons vocaux verrouillés en haut du serveur qui affichent les stats live : membres, bots, rôles, boosts, etc. Refresh toutes les 10 minutes (Discord cap à 2 renames par tranche de 10 min sur un même channel, donc pas le choix). Setup en une commande.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 4. Salons vocaux temporaires</p>
-          <p class="about-p">Pattern <span class="highlight">join-to-create</span> : un salon "Cliquez pour créer" qui, quand un user le rejoint, lui crée un salon vocal personnel avec lui en owner (perms manage_channels + move_members sur ce salon uniquement). Auto-suppression quand le dernier user quitte. L'owner peut renommer, limiter, verrouiller, kick ou transférer l'ownership.</p>
+          <p class="about-p">Le classique <span class="highlight">join-to-create</span>. Tu rejoins un salon spécial, le bot t'en crée un perso où t'es admin, et ça se supprime tout seul quand il y a plus personne dedans. Tu peux renommer, lock, kick, transférer l'ownership à un autre membre.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 5. Hardening sécurité du dashboard</p>
-          <p class="about-p">Middleware aiohttp qui pose tous les security headers : X-Frame-Options: DENY (anti-clickjacking), X-Content-Type-Options: nosniff, HSTS 2 ans, Content-Security-Policy avec allowlist stricte (jsdelivr + cdn.discordapp.com), Referrer-Policy, Permissions-Policy. Cookie de session Secure + SameSite=Lax + httponly. Rate limit sur /redeem à 10 tentatives / heure / user pour bloquer le bruteforce de codes premium.</p>
+          <p class="feature-title" style="margin-top:2rem">$ 5. Sécurisation du dashboard</p>
+          <p class="about-p">Un dashboard exposé sur internet, ça veut dire qu'il faut sécuriser sérieusement. Middleware qui pose les bons headers (CSP, HSTS 2 ans, X-Frame anti-clickjacking), cookies Secure + SameSite + httponly. Et un rate limit sur /redeem (10 tentatives par heure) pour bloquer le bruteforce de codes premium.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 6. Découverte in-product du dashboard</p>
-          <p class="about-p">Quatre entry points pour que les users tombent dessus sans tuto vidéo : slash command /dashboard, champ "Dashboard web" dans les embeds /premium et /botinfo, bouton "Dashboard" sur la page status publique, et un nouveau cog bot_onboarding.py qui DM le owner d'un nouveau serveur dès l'ajout du bot (avec l'URL et un mini-guide de démarrage).</p>
+          <p class="feature-title" style="margin-top:2rem">$ 6. Faire découvrir le dashboard</p>
+          <p class="about-p">Personne va sur un dashboard si on lui dit pas qu'il existe. J'ai mis 4 points d'entrée : la commande /dashboard, un champ dans les embeds /premium et /botinfo, un bouton sur la page status, et un DM auto au owner quand le bot rejoint un nouveau serveur.</p>
 
-          <p class="feature-title" style="margin-top:2rem">$ 7. Doc client + marketing</p>
-          <p class="about-p">PDF client-facing (~20 pages) mis à jour : deux nouvelles sous-sections (counters + tempvoice), section dédiée au dashboard, tableau Free vs Premium étendu, stat passée à 85 commandes. Trois scripts vidéo prêts à filmer (TikTok 45s, demo serveur 1-2 min, YouTube 3-5 min) exportables en PDF via un script Python.</p>
+          <p class="feature-title" style="margin-top:2rem">$ 7. Doc client et scripts marketing</p>
+          <p class="about-p">PDF client de 20 pages mis à jour avec les nouvelles sections (counters, tempvoice, dashboard) et un tableau Free vs Premium refait. Et 3 scripts vidéo prêts à filmer (TikTok, demo serveur, YouTube long format) que j'exporte en PDF avec un petit script Python.</p>
 
-          <p class="about-p" style="margin-top:2rem; opacity:0.75"># Bug fix notable : Render utilisait Python 3.14 par défaut (cryptography/Fernet cassé dessus). Pin de Python à 3.11.9 via .python-version (runtime.txt et PYTHON_VERSION ignorés par Render), puis switch d'EncryptedCookieStorage à NaClCookieStorage parce que Fernet restait instable même sur 3.11.</p>
+          <p class="about-p" style="margin-top:2rem; opacity:0.75"># La galère du moment : Render forçait Python 3.14 et ça cassait Fernet (la lib de crypto pour les cookies). J'ai pin Python à 3.11.9 via .python-version (les autres méthodes étaient ignorées par Render), et j'ai fini par remplacer Fernet par PyNaCl parce que ça marchait toujours pas même sur 3.11.</p>
         </div>
 
         <!-- EXTRAIT DE CODE -->
@@ -346,6 +346,7 @@ _CSP = (
         <!-- LIENS -->
         <div class="hero-cta reveal-text" style="margin-top:3rem; justify-content:flex-start; flex-wrap:wrap; gap:1rem">
           <a href="https://discord.gg/6RzwPAtFvq" target="_blank" rel="noopener" class="term-btn">[ Rejoindre le Discord ]</a>
+          <a href="https://yuasbot.onrender.com/dashboard/" target="_blank" rel="noopener" class="term-btn">[ Ouvrir le Dashboard ]</a>
           <a href="fichier/yuAs69Bots-Documentation.pdf" target="_blank" rel="noopener" class="term-btn term-btn--ghost">[ Documentation (PDF) ]</a>
           <a href="https://yuasbot.onrender.com/" target="_blank" rel="noopener" class="term-btn term-btn--ghost">[ Status du bot ]</a>
           <a href="projects.html" class="term-btn term-btn--ghost">[ ← Retour aux projets ]</a>
