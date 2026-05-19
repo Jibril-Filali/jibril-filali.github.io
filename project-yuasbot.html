@@ -167,7 +167,7 @@
           <p class="about-p"><span class="highlight">Update mai 2026</span>. Grosse session : un dashboard web pour configurer le bot dans le navigateur, 4 nouvelles features, et tout ce qu'il faut côté sécu pour exposer un truc sur internet.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 1. Dashboard web</p>
-          <p class="about-p">Le plus gros morceau. Une page où les admins peuvent configurer le bot sans utiliser de commandes : connexion via Discord, trois onglets par serveur (message d'accueil, modération IA, premium). Quand un admin change un réglage, le bot l'applique direct, sans redémarrer.</p>
+          <p class="about-p">Le plus gros morceau. Une vraie interface web où les admins configurent le bot sans utiliser de slash commands. Front en HTML/CSS + Bootstrap, back en Python, connexion via OAuth Discord. Trois onglets par serveur : message d'accueil, modération IA, premium. Quand un admin change un réglage, le bot l'applique direct, sans redémarrer.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 2. /joinall et /quitall</p>
           <p class="about-p">Deux commandes que je suis le seul à pouvoir utiliser. Elles permettent d'ajouter ou de retirer en masse des utilisateurs sur un serveur. Pratique pour gérer mon réseau de bots et de serveurs.</p>
@@ -179,7 +179,7 @@
           <p class="about-p">Tu rejoins un salon spécial, le bot t'en crée un perso où t'es admin, et ça se supprime tout seul quand il y a plus personne. Tu peux renommer, kick, verrouiller, transférer l'ownership.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 5. Sécurité du dashboard</p>
-          <p class="about-p">Le dashboard est exposé sur internet, donc il fallait sérieusement le sécuriser. Protections contre les attaques classiques (clickjacking, vol de cookies, etc.) et limite du nombre de tentatives quand quelqu'un active un code premium, pour éviter le bruteforce.</p>
+          <p class="about-p">Le dashboard est exposé sur internet, donc il fallait sérieusement le sécuriser. J'ai mis en place les bons headers HTTP, des cookies sécurisés contre les attaques classiques (clickjacking, vol de session), et une limite de 10 tentatives par heure sur l'activation des codes premium pour éviter le bruteforce.</p>
 
           <p class="feature-title" style="margin-top:2rem">$ 6. Faire découvrir le dashboard</p>
           <p class="about-p">Personne ira sur un dashboard si on le lui dit pas. J'ai ajouté plusieurs points d'entrée : une commande dédiée, un bouton sur la page status du bot, et un DM automatique au propriétaire d'un serveur quand le bot le rejoint.</p>
@@ -187,7 +187,7 @@
           <p class="feature-title" style="margin-top:2rem">$ 7. Doc et marketing</p>
           <p class="about-p">PDF de 20 pages mis à jour avec les nouvelles features, et 3 scripts vidéo prêts à filmer (TikTok, demo, YouTube).</p>
 
-          <p class="about-p" style="margin-top:2rem; opacity:0.75"># La galère du moment : un changement de version de Python sur l'hébergeur a cassé la lib qui chiffre les cookies du dashboard. J'ai dû figer la version de Python et changer de lib de chiffrement.</p>
+          <p class="about-p" style="margin-top:2rem; opacity:0.75"># La galère du moment : un changement de version de Python sur Render (l'hébergeur) a cassé la lib qui chiffre les cookies du dashboard. J'ai dû figer la version de Python utilisée et changer de lib de chiffrement.</p>
         </div>
 
         <!-- EXTRAIT DE CODE -->
